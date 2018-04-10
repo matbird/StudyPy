@@ -1,0 +1,10 @@
+# 向量空间
+import numpy as np
+# <1.1 复数>
+
+# </1.1 复数>
+
+if __name__ == '__main__':
+    # z = np.complex(2,3)
+    # print(z)
+    pass
