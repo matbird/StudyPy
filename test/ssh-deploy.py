@@ -6,8 +6,11 @@ def ssh(sys_ip,username,password,cmds):
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy)
         client.connect(sys_ip,22,username=username,password=password,timeout=20)
-        stdin,stdout,stderr = client.exec_command(cmds)
-        return stdout.readlines()
+        results = []
+        for cmd in cmds:
+            stdin,stdout,stderr = client.exec_command(cmd)
+            results.append(stdout.readlines())
+        return results
     except Exception as e:
         print(e)
     finally:
@@ -15,9 +18,9 @@ def ssh(sys_ip,username,password,cmds):
 
 if __name__ == '__main__':
     username = 'root'
-    password = '#password'
-    sys_ip = '127.0.0.1'
-    cmds = 'pwd'
+    password = 'Malian9531!'
+    sys_ip = '119.23.251.136'
+    cmds = ['pwd','ls']
     results = ssh(sys_ip,username,password,cmds)
     print(results)
     pass
