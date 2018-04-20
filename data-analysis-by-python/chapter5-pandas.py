@@ -62,4 +62,6 @@ if __name__ == '__main__':
     print(data)
 
     data.fillna()
+
+    pd.read_csv()
     pass
